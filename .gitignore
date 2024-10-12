@@ -221,3 +221,5 @@ terraform.rc
 
 terraform/modules/lambda/layer/python
 **/*.zip
+eda/*.json
+
