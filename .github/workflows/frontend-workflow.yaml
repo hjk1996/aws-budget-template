@@ -1,0 +1,52 @@
+name: Build and Deploy Flutter Frontend
+
+# Push 이벤트 중 frontend 폴더에 변경이 생겼을 때만 트리거
+on:
+  push:
+    paths:
+      - 'frontend/**'  # frontend 폴더 내의 모든 파일에 대한 변경을 감지
+
+
+env:
+  AWS_REGION: ap-northeast-2
+  BUCKET_NAME: something
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Checkout the current repository
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ env.AWS_REGION }}
+
+    # 2. Set up Flutter environment
+    - name: Set up Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.0.0'  # 원하는 Flutter 버전
+
+    # 3. Install Flutter dependencies
+    - name: Install dependencies
+      run: |
+        cd frontend
+        flutter pub get  # Flutter 패키지 의존성 설치
+
+    # 4. Build the Flutter web app
+    - name: Build Flutter Web
+      run: |
+        cd frontend
+        flutter build web
+
+    # 5. Upload the built artifacts to S3
+    - name: sync s3
+      run : |
+        aws s3 sync frontend/build/web s3://${{ env.BUCKET_NAME }}/artifact --delete
