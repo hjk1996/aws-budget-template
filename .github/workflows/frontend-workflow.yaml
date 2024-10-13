@@ -27,13 +27,15 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
 
- 
-
       # 2. Set up Flutter environment
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
+          architecture: x64
           flutter-version-file: frontend/pubspec.yaml
+      - run: |
+          git config --global --add safe.directory /opt/hostedtoolcache/flutter/${{ steps.flutter-action.outputs.CHANNEL }}-${{ steps.flutter-action.outputs.VERSION }}-${{ steps.flutter-action.outputs.ARCHITECTURE }}
+          flutter --version
 
       # 3. Install Flutter dependencies
       - name: Install dependencies
