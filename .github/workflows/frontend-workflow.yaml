@@ -36,7 +36,7 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version-file: frontend/pubspec.yaml
+          flutter-version: 3.5.3
 
       # 3. Install Flutter dependencies
       - name: Install dependencies
