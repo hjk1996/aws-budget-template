@@ -218,7 +218,10 @@ terraform.rc
 
 
 
+# python layer 제거
 terraform/modules/lambda/layer/python
+# 압축파일 제거
 **/*.zip
+# eda에 사용한 데이터 제거
 eda/*.json
 
