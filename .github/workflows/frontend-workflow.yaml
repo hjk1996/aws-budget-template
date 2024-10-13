@@ -9,7 +9,7 @@ on:
 
 env:
   AWS_REGION: ap-northeast-2
-  BUCKET_NAME: something
+  BUCKET_NAME: budget-project-artifact-bucket
 
 jobs:
   build:
