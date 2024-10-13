@@ -1,10 +1,19 @@
 provider "aws" {
-  region = "ap-northeast-2"
+  region = local.region
 
   default_tags {
     tags = {
       TerraformManaged = true
     }
+  }
+}
+
+terraform {
+  backend "s3" {
+    bucket = "khj-tfstates"
+    key = "aws-budget-template"
+    region = "ap-northeast-2"
+    encrypt = true
   }
 }
 
@@ -19,5 +28,10 @@ module "lambda" {
 module "route53" {
   source = "./modules/route53"
 
-  domain = local.domain
+  domain = var.domain
+}
+
+module "cloudfront" {
+  source               = "./modules/cloudfront"
+  artifact_bucket_name = local.artifact_bucket_name
 }

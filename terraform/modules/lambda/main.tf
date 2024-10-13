@@ -370,8 +370,8 @@ resource "aws_lambda_function" "date_fetch" {
 
   environment {
     variables = {
-      table_name     = aws_dynamodb_table.price.name
-      region         = var.region
+      table_name = aws_dynamodb_table.price.name
+      region     = var.region
     }
   }
 
