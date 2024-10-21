@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/utils/resources_name_mapping.dart';
+import 'package:frontend/views/resource_list/widgets/category_list.dart';
 
 class ResourceListView extends StatefulWidget {
   static const routeName = "resource_list";
@@ -14,7 +16,25 @@ class _ResourceListViewState extends State<ResourceListView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.save))],
+        leading:
+            IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back)),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.save),
+          )
+        ],
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(10),
+        child: ListView(
+          children: [
+            const CategoryListWidget(
+              mainCategory: "Computing",
+              subCategoryList: ResouresNameMapping.computing,
+            ),
+          ],
+        ),
       ),
     );
   }

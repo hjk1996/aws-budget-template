@@ -15,6 +15,8 @@ class _HomewViewState extends State<HomewView> {
       appBar: AppBar(),
       body: SingleChildScrollView(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             ElevatedButton(
               onPressed: () =>
