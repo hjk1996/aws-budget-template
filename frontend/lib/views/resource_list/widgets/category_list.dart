@@ -51,6 +51,8 @@ class _CategoryListWidgetState extends State<CategoryListWidget> {
                         children: [
                           ...widget.subCategoryList.map((resourceName) {
                             return ListTile(
+                              leading: Image.asset(
+                                  "assets/icons/${resourceName.showName.toLowerCase()}.png"),
                               title: Text(resourceName.showName),
                               onTap: () {
                                 Navigator.pop(context); // 팝업 닫기

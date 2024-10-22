@@ -2,8 +2,8 @@ abstract class ResouresNameMapping {
   static const ec2 =
       ResourceName(showName: "EC2", fieldValue: "AmazonEC2_Compute Instance");
   static const eks = ResourceName(showName: "EKS", fieldValue: "AmazonEC2_EKS");
-  static const rds = ResourceName(
-      showName: "RDS(Aurora)", fieldValue: "AmazonRDS_Database Instance");
+  static const rds =
+      ResourceName(showName: "RDS", fieldValue: "AmazonRDS_Database Instance");
   static const elastiCache = ResourceName(
       showName: "ElastiCache", fieldValue: "AmazonElastiCache_Cache Instance");
 
