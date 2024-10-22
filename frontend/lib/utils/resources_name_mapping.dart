@@ -6,6 +6,8 @@ abstract class ResouresNameMapping {
       ResourceName(showName: "RDS", fieldValue: "AmazonRDS_Database Instance");
   static const elastiCache = ResourceName(
       showName: "ElastiCache", fieldValue: "AmazonElastiCache_Cache Instance");
+  static const msk =
+      ResourceName(showName: "MSK", fieldValue: "AmazonMSK_Something");
 
   static const computing = [ec2, eks];
   static const backing = [rds, elastiCache];

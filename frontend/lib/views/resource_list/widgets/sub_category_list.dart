@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/utils/resources_name_mapping.dart';
 import 'package:frontend/views/resource_list/resource_list_view.dart';
+import 'package:frontend/views/resource_list/widgets/sub_category_bottom_sheet_item.dart';
 import 'package:frontend/views/resource_select/resource_select_view.dart';
 
-class CategoryListWidget extends StatefulWidget {
+class SubCategoryListWidget extends StatefulWidget {
   final String mainCategory;
   final List<ResourceName> subCategoryList;
 
-  const CategoryListWidget(
+  const SubCategoryListWidget(
       {super.key, required this.mainCategory, required this.subCategoryList});
 
   @override
-  State<CategoryListWidget> createState() => _CategoryListWidgetState();
+  State<SubCategoryListWidget> createState() => _SubCategoryListWidgetState();
 }
 
-class _CategoryListWidgetState extends State<CategoryListWidget> {
+class _SubCategoryListWidgetState extends State<SubCategoryListWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -48,25 +49,10 @@ class _CategoryListWidgetState extends State<CategoryListWidget> {
                       context: context,
                       builder: (context) => Column(
                         mainAxisSize: MainAxisSize.min,
-                        children: [
-                          ...widget.subCategoryList.map((resourceName) {
-                            return ListTile(
-                              leading: Image.asset(
-                                  "assets/icons/${resourceName.showName.toLowerCase()}.png"),
-                              title: Text(resourceName.showName),
-                              onTap: () {
-                                Navigator.pop(context); // 팝업 닫기
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => ResourceSelectView(
-                                        subCategory: resourceName.fieldValue,
-                                      ),
-                                    ));
-                              },
-                            );
-                          }),
-                        ],
+                        children: widget.subCategoryList.map((resourceName) {
+                          return SubCategoryBottomSheetListItem(
+                              resourceName: resourceName);
+                        }).toList(),
                       ),
                     );
                   },

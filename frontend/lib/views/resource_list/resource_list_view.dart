@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/utils/resources_name_mapping.dart';
-import 'package:frontend/views/resource_list/widgets/category_list.dart';
+import 'package:frontend/views/resource_list/widgets/sub_category_list.dart';
 
 class ResourceListView extends StatefulWidget {
   static const routeName = "resource_list";
@@ -29,7 +29,7 @@ class _ResourceListViewState extends State<ResourceListView> {
         padding: EdgeInsets.all(10),
         child: ListView(
           children: [
-            const CategoryListWidget(
+            const SubCategoryListWidget(
               mainCategory: "Computing",
               subCategoryList: ResouresNameMapping.computing,
             ),
