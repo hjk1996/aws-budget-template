@@ -28,10 +28,14 @@ class _ResourceListViewState extends State<ResourceListView> {
       body: Padding(
         padding: EdgeInsets.all(10),
         child: ListView(
-          children: [
-            const SubCategoryListWidget(
+          children: const [
+            SubCategoryListWidget(
               mainCategory: "Computing",
               subCategoryList: ResouresNameMapping.computing,
+            ),
+            SubCategoryListWidget(
+              mainCategory: "Backing",
+              subCategoryList: ResouresNameMapping.backing,
             ),
           ],
         ),
