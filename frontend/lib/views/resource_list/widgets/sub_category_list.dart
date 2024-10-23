@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/utils/resources_name_mapping.dart';
-import 'package:frontend/views/resource_list/resource_list_view.dart';
 import 'package:frontend/views/resource_list/widgets/sub_category_bottom_sheet_item.dart';
-import 'package:frontend/views/resource_select/resource_select_view.dart';
 
 class SubCategoryListWidget extends StatefulWidget {
   final String mainCategory;
-  final List<ResourceName> subCategoryList;
+  final List<ResourceSetting> subCategoryList;
 
   const SubCategoryListWidget(
       {super.key, required this.mainCategory, required this.subCategoryList});

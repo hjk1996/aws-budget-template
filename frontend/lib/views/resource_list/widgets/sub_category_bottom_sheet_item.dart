@@ -3,7 +3,7 @@ import 'package:frontend/utils/resources_name_mapping.dart';
 import 'package:frontend/views/resource_select/resource_select_view.dart';
 
 class SubCategoryBottomSheetListItem extends StatelessWidget {
-  final ResourceName resourceName;
+  final ResourceSetting resourceName;
   const SubCategoryBottomSheetListItem({super.key, required this.resourceName});
 
   @override
@@ -18,7 +18,7 @@ class SubCategoryBottomSheetListItem extends StatelessWidget {
             context,
             MaterialPageRoute(
               builder: (context) => ResourceSelectView(
-                resourceName: resourceName,
+                resourceSetting: resourceName,
               ),
             ));
       },

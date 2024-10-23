@@ -26,7 +26,7 @@ class _ResourceListViewState extends State<ResourceListView> {
         ],
       ),
       body: Padding(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: ListView(
           children: const [
             SubCategoryListWidget(
